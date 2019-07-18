@@ -7,6 +7,11 @@ import 'bootstrap-select'
 import './style/bootstrap-datetimepicker.css'
 import 'moment'
 import './common/bootstrap-datetimepicker.min.js'
+import './style/icon-style.css'
+import './style/form.css'
+import './style/main.css'
+import './style/index.css'
+import './style/myStyle.css'
 
 import Vue from 'vue'
 import App from './components/App.vue';

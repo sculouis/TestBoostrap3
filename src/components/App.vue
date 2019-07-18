@@ -1,66 +1,28 @@
 <template>
-<div>
-    <nav-bar></nav-bar>
-    <h3>基本控件</h3>
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <!-- <nav-bar></nav-bar> -->
+    <div class="section-box-area">
+        <div class="box-area-title sub-id-flag"><b class="sub-title-flag">基本控件</b></div>
+        <div class="box">
             <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="form-group">
-                        <label>選擇欄位</label>
-                        <selecter v-model="val"></selecter>
-                    </div>
+                <div class="col-md-3 content-box">
+                    <!-- <div class="w100 title">選擇欄位</div> -->
+                    <selecter v-model="val"></selecter>
                 </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="form-group">
-                        <label>日期欄位</label>
-                        <date-picker v-model="myDate"></date-picker>
-                    </div>
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">日期欄位</div>
+                    <date-picker v-model="myDate"></date-picker>
                 </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="form-group">
-                        <label>數字欄位</label>
-                        <text-number v-model="numValue"></text-number>
-                    </div>
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">數字欄位</div>
+                    <text-number v-model="numValue"></text-number>
+                </div>
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">檢查框欄位</div>
+                    <check-box v-model="check" title="檢查欄位"></check-box>
                 </div>
             </div>
         </div>
     </div>
-    <h3>表格控件</h3>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th>first name</th>
-                                <th>lastname</th>
-                                <th>fullname</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Louis</td>
-                                <td>Chen</td>
-                                <td>Louis Chen</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>Louis</td>
-                                <td>Chen</td>
-                                <td>Louis Chen</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 </template>
 
 <script>
@@ -68,18 +30,21 @@
     import Selecter from './Selecter.vue'
     import TextNumber from './TextNumber.vue'
     import DatePicker from './DatePicker.vue'
+    import CheckBox from './CheckBox.vue'
     export default {
         components: {
             Selecter,
             TextNumber,
             NavBar,
-            DatePicker
+            DatePicker,
+            CheckBox
         },
         data() {
             return {
                 val: "",
                 numValue: 123456.12,
-                myDate:"2019/07/18"
+                myDate:"2019/07/18",
+                check:true
             };
         },
         mounted() {},
@@ -87,6 +52,7 @@
             console.log(`parent val:${this.val}`)
             console.log(`parent num:${this.numValue}`)
             console.log(`parent num:${this.myDate}`)
+            console.log(`parent num:${this.check}`)
         }
     };
 </script>

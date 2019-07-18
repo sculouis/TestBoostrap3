@@ -2,11 +2,11 @@
 </style>
 
 <template>
-    <select v-model="val" class="selectpicker form-control" data-live-search="true" title="請選擇" data-style="btn-info">
-        <option value="1">Mustard</option>
-        <option value="2">Ketchup</option>
-        <option value="3">測試三</option>
-    </select>
+<select v-bind:id="myid" v-model="val" data-hide-disabled="true" data-size="10" tabindex="-98" class="selectpicker show-tick select-h38" data-live-search="true" title="請選擇">
+        <option selected value="-1">取消選擇</option>
+        <option value="1">選項一</option>
+        <option value="2">選項二</option>
+</select>
 </template>
 
 <script>

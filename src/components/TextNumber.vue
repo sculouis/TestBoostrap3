@@ -1,5 +1,5 @@
 <template>
-  <input class="form-control" v-model="numVal">
+  <input class="input h30" v-model="numVal">
 </template>
 <script>
 export default {

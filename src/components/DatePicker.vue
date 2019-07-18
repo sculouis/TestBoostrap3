@@ -1,10 +1,11 @@
 <template>
-    <div class='input-group date' v-bind:id="myid" data-target-input="nearest" ref="date">
-        <input type='text' class="form-control" />
-        <span class="input-group-addon">
+    <div class='w100 input-group date01 custom-input datetimepicker1' v-bind:id="myid" ref="date">
+        <input type='text' class="input h30" placeholder="yyyy-mm-dd" v-model="val" />
+        <span class="input-group-addon d-input addon-table">
             <span class="glyphicon glyphicon-calendar"></span>
         </span>
     </div>
+
 </template>
 <script>
 import {myMixin} from '../common/library'
