@@ -2,7 +2,7 @@
 </style>
 
 <template>
-    <select v-model="val" class="selectpicker" data-live-search="true" title="請選擇">
+    <select v-model="val" class="selectpicker form-control" data-live-search="true" title="請選擇" data-style="btn-info">
         <option value="1">Mustard</option>
         <option value="2">Ketchup</option>
         <option value="3">測試三</option>
