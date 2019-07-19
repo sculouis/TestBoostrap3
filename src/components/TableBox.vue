@@ -121,7 +121,7 @@ export default {
                         picker1: true,
                         checked1: true,
                         isdelete: 0,
-                        isDetailOpen: true,
+                        isDetailOpen: false,
                         subDatas: [{ data1: "測試1", data2: "測試2", data3: "測試3" }, { data1: "測試1", data2: "測試2", data3: "測試3" }],
                         isSubOpen: false,
                     }
