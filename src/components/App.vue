@@ -67,13 +67,6 @@
                 check:false,
                 picker:false
             };
-        },
-        mounted() {},
-        updated() {
-            console.log(`parent val:${this.val}`)
-            console.log(`parent num:${this.numValue}`)
-            console.log(`parent num:${this.myDate}`)
-            console.log(`parent num:${this.check}`)
         }
     };
 </script>
