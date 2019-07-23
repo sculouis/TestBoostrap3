@@ -23,13 +23,13 @@
         mounted() {
             //console.log($(this.$refs.select).val())
             this.val = this.value
-            // $("#" + this.myid).val(this.value)
-            // $("#" + this.myid).selectpicker('refresh')
+            $("#" + this.myid).val(this.value)
+            $("#" + this.myid).selectpicker('refresh')
         },
         updated() {
             this.$emit('input', this.val);  //回寫對應到dataModel
-            // $("#" + this.myid).val(this.val)
-            // $("#" + this.myid).selectpicker('refresh')
+            $("#" + this.myid).val(this.val)
+            $("#" + this.myid).selectpicker('refresh')
         },
 
     };

@@ -81,6 +81,50 @@ import DatePicker from './DatePicker.vue'
 import CheckBox from './CheckBox.vue'
 import RadioButton from './RadioButton.vue'
 import { mapGetters,mapMutations } from 'vuex'
+var model = {
+    datas: [
+        {
+            no: 1,
+            title:"標題1",
+            val: 1234567890123.123,
+            value: "測試TextBox",
+            select: "1",
+            date: "2019-05-15",
+            picker: true,
+            checked: true,
+            val1: 1234567890123.123,
+            value1: "測試TextBox",
+            select1: "1",
+            date1: "2019-05-15",
+            picker1: true,
+            subDatas:[{data1:"測試1",data2:"測試2",data3:"測試3"},{data1:"測試1",data2:"測試2",data3:"測試3"}],
+            checked1: true,
+            isdelete: 0,
+            isDetailOpen: true,
+            isSubOpen:false,
+        },
+        {
+            no: 2,
+            title: "標題2",
+            val: 1234567890123.123,
+            value: "測試TextBox",
+            select: "2",
+            date: "2019-05-16",
+            picker: false,
+            checked: false,
+            val1: 1234567890123.123,
+            value1: "測試TextBox",
+            select1: "1",
+            date1: "2019-05-15",
+            picker1: true,
+            checked1: true,
+            subDatas: [{ data1: "測試1", data2: "測試2", data3: "測試3" }, { data1: "測試1", data2: "測試2", data3: "測試3" }],
+            isdelete: 0,
+            isDetailOpen: true,
+            isSubOpen:false,
+    },
+    ]
+}
 
 export default {
     components: {
@@ -92,16 +136,19 @@ export default {
         RadioButton
     },
     data(){
-        return {isAllOpen: true }
+        return {model,isAllOpen: true }
     },
     computed:{
-        ...mapGetters(['noDelData','dataLength'])
+        noDelData() { return this.model.datas.filter(element => element.isdelete === 0)},
+        dataLength(){
+            return this.model.datas.length + 1
+        }
     },
     methods:{
-        ...mapMutations(['setIsDetailOpen','addObject','delObject']),
         setAllOpenStatus() {
                 this.isAllOpen = !this.isAllOpen
-                this.setIsDetailOpen(this.isAllOpen)   //設定明細跟隨isAllOpen的狀態
+                this.model.datas.forEach(element => element.isDetailOpen = this.isAllOpen);
+   //設定明細跟隨isAllOpen的狀態
             },
         addNewObject: function () {
                     var no = this.dataLength
@@ -116,7 +163,7 @@ export default {
                         checked: true,
                         val1: 0,
                         value1: "測試TextBox",
-                        select1: "1",
+                        select1: "2",
                         date1: "2019-05-15",
                         picker1: true,
                         checked1: true,
@@ -125,7 +172,7 @@ export default {
                         subDatas: [{ data1: "測試1", data2: "測試2", data3: "測試3" }, { data1: "測試1", data2: "測試2", data3: "測試3" }],
                         isSubOpen: false,
                     }
-                    this.addObject(dataObj)                
+                    this.model.datas.push(dataObj)                
     },
         alertConfirm: function (no) {
         var text = `是否刪除，編號：${no} ?`
@@ -134,7 +181,8 @@ export default {
         this.$dialog
         .confirm(text)
         .then(function(dialog) {
-            self.delObject(no)
+            let delObj = this.model.datas.find(element => element.no === no)
+            delObj.isdelete = 1
         })
         .catch(function() {
             console.log('Clicked on cancel');

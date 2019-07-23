@@ -1,6 +1,5 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin'); 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     mode:'development',
@@ -24,14 +23,10 @@ module.exports = {
                 use:['vue-style-loader','css-loader'],
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(woff|woff2|eot|ttf|otf|svg|gif|png)$/,
                 use: [
                     'file-loader'
                 ]
-            },
-            {
-                test: /\.(svg|gif|png)/,
-                use: ['file-loader']
             },
             {
                 test: require.resolve('jquery'),

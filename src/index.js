@@ -7,6 +7,7 @@ import 'bootstrap-select'
 import './style/bootstrap-datetimepicker.css'
 import 'moment'
 import './common/bootstrap-datetimepicker.min.js'
+// for Esun
 import './style/icon-style.css'
 import './style/form.css'
 import './style/main.css'
@@ -14,7 +15,6 @@ import './style/index.css'
 import './style/myStyle.css'
 import Vue from 'vue'
 import VuejsDialog from 'vuejs-dialog';
-import VuejsDialogMixin from 'vuejs-dialog/dist/vuejs-dialog-mixin.min.js'; // only needed in custom components
 
 // include the default style
 import 'vuejs-dialog/dist/vuejs-dialog.min.css';
@@ -28,7 +28,7 @@ Vue.use(VuejsDialog, {
   });
 
 new Vue({
-    store,
+    // store,暫時不用
     el:'#app',
     render:h=>h(App)
 })
