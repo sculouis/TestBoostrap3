@@ -20,12 +20,12 @@
     <tbody v-for="(data,index) in noDelData" v-bind:key="index">
         <tr>
             <td v-text="index + 1" rowspan="200"></td>
-            <td><text-number v-model="data.val"></text-number></td>
-            <td><selecter v-model="data.select"></selecter></td>
-            <td><date-picker v-model="data.date"></date-picker></td>
-            <td><check-box v-model="data.checked" v-bind:title="data.title"></check-box></td>
+            <td><TextNumber v-model="data.val"></TextNumber></td>
+            <td><Selecter v-model="data.select"></Selecter></td>
+            <td><DatePicker v-model="data.date"></DatePicker></td>
+            <td><CheckBox v-model="data.checked" v-bind:title="data.title"></CheckBox></td>
             <td>
-                <radio-button v-model="data.picker"></radio-button>
+                <RadioButton v-model="data.picker"></RadioButton>
             </td>
             <td>
                 <div class="btn-01-add ExpandDetail"><a v-on:click="data.isDetailOpen = !data.isDetailOpen"><div class="glyphicon" v-bind:class="[data.isDetailOpen?'glyphicon-chevron-up':'glyphicon-chevron-down']" ></div></a></div>
@@ -42,12 +42,12 @@
                 </th>
             </tr>
             <tr v-show="data.isDetailOpen">
-                <td><text-number v-model="data.val1"></text-number></td>
-                <td><selecter v-model="data.select1"></selecter></td>
-                <td><date-picker v-model="data.date1"></date-picker></td>
-                <td><check-box v-model="data.checked1" v-bind:title="data.title"></check-box></td>
+                <td><TextNumber v-model="data.val1"></TextNumber></td>
+                <td><Selecter v-model="data.select1"></Selecter></td>
+                <td><DatePicker v-model="data.date1"></DatePicker></td>
+                <td><CheckBox v-model="data.checked1" v-bind:title="data.title"></CheckBox></td>
                 <td colspan="2">
-                    <radio-button v-model="data.picker1"></radio-button>
+                    <RadioButton v-model="data.picker1"></RadioButton>
                 </td>
             </tr>
             <tr v-show="data.isDetailOpen">
