@@ -1,5 +1,5 @@
 <template>
-    <TableBase v-bind:tableData="model.datas">
+    <TableBase v-bind:tableData="noDelData">
         <template slot="FirstHead">
             <th class="th-title w5">no</th>
             <th class="th-title w15">textNumber</th>
@@ -10,7 +10,7 @@
                 radioButton
             </th>
         </template>
-        <template slot="FirstDetail" slot-scope="{ data,index }">
+        <template v-slot:FirstDetail = "{ data,index }">
             <td v-text="index + 1" rowspan="200"></td>
             <td><TextNumber v-model="data.val"></TextNumber></td>
             <td><Selecter v-model="data.select"></Selecter></td>
@@ -20,7 +20,7 @@
                 <RadioButton v-model="data.picker"></RadioButton>
             </td>
         </template>
-        <template slot="SecondDetailHead">
+        <template v-slot:SecondDetailHead>
                 <th class="th-title-1 w15">textNumber1</th>
                 <th class="th-title-1 w15">selecter1</th>
                 <th class="th-title-1 w15">datePicker1</th>
@@ -29,7 +29,7 @@
                     radioButton1
                 </th>
         </template>
-        <template slot="SecondDetail" slot-scope="{ data }">
+        <template v-slot:SecondDetail= "{ data }">
                 <td><TextNumber v-model="data.val1"></TextNumber></td>
                 <td><Selecter v-model="data.select1"></Selecter></td>
                 <td v-text="data.date1"></td>
@@ -38,12 +38,12 @@
                     <RadioButton v-model="data.picker1"></RadioButton>
                 </td>
         </template>
-        <template slot="ThirdHead" slot-scope="{ data }">
+        <template v-slot:ThirdHead="{ data }">
                 <th class="th-title-1">編號</th>
                 <th class="th-title-1">子項目</th>
                 <th class="th-title-1" colspan="2">子項目</th>
         </template>
-        <template slot="ThirdDetail" slot-scope="{ subdata,index }">
+        <template v-slot:ThirdDetail="{ subdata,index }">
                 <td v-text="index + 1"></td>
                 <td v-text="subdata.data1"></td>
                 <td colspan="2" v-text="subdata.data2"></td>
@@ -59,52 +59,6 @@ import DatePicker from './DatePicker.vue'
 import CheckBox from './CheckBox.vue'
 import RadioButton from './RadioButton.vue'
 import TableBase from './Table/TableBase.vue'
-import { mapGetters,mapMutations } from 'vuex'
-var model = {
-    datas: [
-        {
-            no: 1,
-            title:"標題1",
-            val: 1234567890123.123,
-            value: "測試TextBox",
-            select: "1",
-            date: "2019-05-15",
-            picker: true,
-            checked: true,
-            val1: 1234567890123.123,
-            value1: "測試TextBox",
-            select1: "1",
-            date1: "2019-05-15",
-            picker1: true,
-            subDatas:[{data1:"測試1",data2:"測試2",data3:"測試3"},{data1:"測試1",data2:"測試2",data3:"測試3"}],
-            checked1: true,
-            isdelete: 0,
-            isDetailOpen: true,
-            isSubOpen:false,
-        },
-        {
-            no: 2,
-            title: "標題2",
-            val: 1234567890123.123,
-            value: "測試TextBox",
-            select: "2",
-            date: "2019-05-16",
-            picker: false,
-            checked: false,
-            val1: 1234567890123.123,
-            value1: "測試TextBox",
-            select1: "1",
-            date1: "2019-05-15",
-            picker1: true,
-            checked1: true,
-            subDatas: [{ data1: "測試1", data2: "測試2", data3: "測試3" }, { data1: "測試1", data2: "測試2", data3: "測試3" }],
-            isdelete: 0,
-            isDetailOpen: true,
-            isSubOpen:false,
-    },
-    ]
-}
-
 export default {
     components: {
         Selecter,
@@ -115,9 +69,11 @@ export default {
         RadioButton,
         TableBase
     },
-    data(){
-        return {model}
-    },
+    computed:{
+        noDelData(){
+            return this.$store.state.model.datas.filter(element => element.isdelete === 0)
+        }
+        }	
 }
 </script>
 

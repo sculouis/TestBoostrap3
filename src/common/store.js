@@ -53,14 +53,11 @@ export default new Vuex.Store({
   },
     //取得屬性
     getters: {
-        noDelData(state){
-            return state.model.datas.filter(element => element.isdelete === 0)
-        },
         dataLength(state){
             return state.model.datas.length + 1
         }
         },
-    //註冊要update值的方法類似event
+    //註冊要update值的方法類似event,用commit呼叫
     mutations: {
         delObject(state,no) {
             let delObj = state.model.datas.find(element => element.no === no)

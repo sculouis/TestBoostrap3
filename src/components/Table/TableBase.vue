@@ -52,22 +52,24 @@
     </table>
 </template>
 <script>
+import { mapGetters,mapMutations } from 'vuex'
+
 export default {
         props:["tableData"],
         data(){
-        return {isAllOpen: true ,datas:[]}
+        return {isAllOpen: true}
         },
         mounted(){
-            this.datas = this.tableData
+            // this.datas = this.tableData
         },
-        methods:{
+        methods:{...mapMutations(['setIsDetailOpen','addObject','delObject']),
         setAllOpenStatus() {
                 this.isAllOpen = !this.isAllOpen
-                this.datas.forEach(element => element.isDetailOpen = this.isAllOpen);
+                this.setIsDetailOpen(this.isAllOpen) 
    //設定明細跟隨isAllOpen的狀態
             },
         addNewObject: function () {
-                    var no = this.dataLength 
+                    var no = this.dataLength
                     var dataObj = {
                         no: no,
                         title: "標題",
@@ -88,7 +90,7 @@ export default {
                         subDatas: [{ data1: "測試1", data2: "測試2", data3: "測試3" }, { data1: "測試1", data2: "測試2", data3: "測試3" }],
                         isSubOpen: false,
                     }
-                    this.datas.push(dataObj)                
+                    this.addObject(dataObj)                
             },
         alertConfirm: function (no) {
         var text = `是否刪除，編號：${no} ?`
@@ -97,19 +99,15 @@ export default {
         this.$dialog
         .confirm(text)
         .then(function(dialog) {
-            let delObj = self.datas.find(element => element.no === no)
-            delObj.isdelete = 1
+            self.delObject(no)
         })
         .catch(function() {
             console.log('Clicked on cancel');
         });
      },
     },
-    computed:{
-        noDelData() { return this.datas.filter(element => element.isdelete === 0)},
-        dataLength(){
-            return this.datas.length + 1
-        }
+    computed:{...mapGetters(['dataLength']),
+        noDelData() { return this.tableData.filter(element => element.isdelete === 0)},
     },
 }
 </script>

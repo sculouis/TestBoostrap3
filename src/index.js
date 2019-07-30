@@ -28,7 +28,7 @@ Vue.use(VuejsDialog, {
   });
 
 new Vue({
-    // store,暫時不用
+    store,
     el:'#app',
     render:h=>h(App)
 })
