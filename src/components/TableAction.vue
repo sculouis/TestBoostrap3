@@ -71,7 +71,7 @@ export default {
     },
     computed:{
         noDelData(){
-            return this.$store.state.model.datas.filter(element => element.isdelete === 0)
+            return this.$store.state.tableAction.model.datas.filter(element => element.isdelete === 0)
         }
         }	
 }

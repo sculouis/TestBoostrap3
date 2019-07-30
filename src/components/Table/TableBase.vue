@@ -14,7 +14,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody v-for="(data,index) in noDelData" v-bind:key="index">
+        <tbody v-for="(data,index) in tableData" v-bind:key="index">
             <tr>
                 <slot name="FirstDetail" v-bind:data="data" v-bind:index="index"></slot>
                 <td>

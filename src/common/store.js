@@ -47,32 +47,37 @@ var model = {
     ]
 }
 
+const tableAction = {
+    state: {
+        model
+      },
+        //取得屬性
+        getters: {
+            dataLength(state){
+                return state.model.datas.length + 1
+            }
+            },
+        //註冊要update值的方法類似event,用commit呼叫
+        mutations: {
+            delObject(state,no) {
+                let delObj = state.model.datas.find(element => element.no === no)
+                delObj.isdelete = 1
+            },
+            addObject(state, obj) {
+                state.model.datas.push(obj)
+            },
+            setIsDetailOpen(state,objBool) {
+                state.model.datas.forEach(element => element.isDetailOpen = objBool);
+            }
+        },
+        //非同步取得資源放在這，例如呼叫Server WebAPI，用dispatch呼叫
+        actions: {
+    
+        }
+}
+
 export default new Vuex.Store({
-  state: {
-    model
-  },
-    //取得屬性
-    getters: {
-        dataLength(state){
-            return state.model.datas.length + 1
-        }
-        },
-    //註冊要update值的方法類似event,用commit呼叫
-    mutations: {
-        delObject(state,no) {
-            let delObj = state.model.datas.find(element => element.no === no)
-            delObj.isdelete = 1
-        },
-        addObject(state, obj) {
-            state.model.datas.push(obj)
-        },
-        setIsDetailOpen(state,objBool) {
-            state.model.datas.forEach(element => element.isDetailOpen = objBool);
-        }
-    },
-    //非同步取得資源放在這，例如呼叫Server WebAPI，用dispatch呼叫
-    actions: {
-
+    modules:{
+        tableAction
     }
-
 })

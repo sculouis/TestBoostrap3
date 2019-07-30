@@ -21,11 +21,11 @@ export default {
                     return this.val;
                 } else {
                     let l10nEN = new Intl.NumberFormat("en-US");
-                    let result = l10nEN.format(unformatValue);
+                    let result = (Number(unformatValue)).toLocaleString('en-US',{maximumFractionDigits:10});
                     if (result === "NaN") {
                         return this.val;
                     } else {
-                        return l10nEN.format(unformatValue);
+                        return (Number(unformatValue)).toLocaleString('en-US',{maximumFractionDigits:10});
                     }
                 }
             },
