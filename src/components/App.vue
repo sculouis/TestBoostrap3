@@ -29,7 +29,7 @@
         </Box>
         <Box title="明細table控件">
             <div class="row">
-                <TableBox></TableBox>
+                <TableAction></TableAction>
             </div>
         </Box>
     </div>
@@ -43,7 +43,7 @@
     import DatePicker from './DatePicker.vue'
     import CheckBox from './CheckBox.vue'
     import RadioButton from './RadioButton.vue'
-    import TableBox from './TableBox.vue'
+    import TableAction from './TableAction.vue'
     export default {
         components: {
             Box,
@@ -53,7 +53,7 @@
             DatePicker,
             CheckBox,
             RadioButton,
-            TableBox
+            TableAction
         },
         data() {
             return {
