@@ -59,6 +59,9 @@ import DatePicker from './DatePicker.vue'
 import CheckBox from './CheckBox.vue'
 import RadioButton from './RadioButton.vue'
 import TableBase from './Table/TableBase.vue'
+import tableData from '../data/table.json'
+import { mapMutations } from 'vuex'
+
 export default {
     components: {
         Selecter,
@@ -69,9 +72,14 @@ export default {
         RadioButton,
         TableBase
     },
+    mounted(){
+            this.initData(tableData)    
+    },
+    methods:{...mapMutations(['initData'])
+    },
     computed:{
         noDelData(){
-            return this.$store.state.tableAction.model.datas.filter(element => element.isdelete === 0)
+            return this.$store.state.tableAction.model.filter(element => element.isdelete === 0)
         }
         }	
 }
