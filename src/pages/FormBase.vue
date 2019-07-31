@@ -52,10 +52,7 @@ export default {
                 check:false,
                 picker:false
             };
-        },
-        mounted() {
-          console.log(this.$route)  
-        },
+        }
 }
 </script>
 

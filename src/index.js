@@ -20,7 +20,7 @@ import VuejsDialog from 'vuejs-dialog';
 // include the default style
 import 'vuejs-dialog/dist/vuejs-dialog.min.css';
 import store from './common/store'
-import App from './components/App.vue';
+import App from './pages/App.vue';
 import FormBase from './pages/FormBase.vue'
 import TableAction from './pages/TableAction.vue'
 

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import NavBar from './NavBar.vue'
-import BreadCrumb from './BreadCrumb.vue'
+import NavBar from '../components/NavBar.vue'
+import BreadCrumb from '../components/BreadCrumb.vue'
 export default {
     components:{NavBar,BreadCrumb}
 };
