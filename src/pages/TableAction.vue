@@ -52,13 +52,12 @@
     </TableBase>
 </template>
 <script>
-import NavBar from './NavBar.vue'
-import Selecter from './Selecter.vue'
-import TextNumber from './TextNumber.vue'
-import DatePicker from './DatePicker.vue'
-import CheckBox from './CheckBox.vue'
-import RadioButton from './RadioButton.vue'
-import TableBase from './Table/TableBase.vue'
+import Selecter from '../components/Selecter.vue'
+import TextNumber from '../components/TextNumber.vue'
+import DatePicker from '../components/DatePicker.vue'
+import CheckBox from '../components/CheckBox.vue'
+import RadioButton from '../components/RadioButton.vue'
+import TableBase from '../components/Table/TableBase.vue'
 import tableData from '../data/table.json'
 import { mapMutations } from 'vuex'
 
@@ -66,7 +65,6 @@ export default {
     components: {
         Selecter,
         TextNumber,
-        NavBar,
         DatePicker,
         CheckBox,
         RadioButton,
