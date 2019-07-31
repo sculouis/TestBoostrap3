@@ -1,17 +1,20 @@
 <template>
     <div>
-        <p>
-            <router-link to="/formbase">formbase</router-link>
-            <router-link to="/table">table</router-link>
-        </p>
-        <router-view></router-view>
-
+        <NavBar></NavBar>
+        <BreadCrumb>
+        </BreadCrumb>
+        <div class="container" role="main">
+            <router-view></router-view>
+        </div> <!-- /container -->
     </div>
 </template>
 
 <script>
-    export default {
-    };
+import NavBar from './NavBar.vue'
+import BreadCrumb from './BreadCrumb.vue'
+export default {
+    components:{NavBar,BreadCrumb}
+};
 </script>
 
 <style>

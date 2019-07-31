@@ -1,4 +1,5 @@
 <template>
+    <Box title="明細控制項">
     <TableBase v-bind:tableData="noDelData">
         <template slot="FirstHead">
             <th class="th-title w5">no</th>
@@ -50,19 +51,22 @@
                 <td colspan="2" v-text="subdata.data3"></td>
         </template>
     </TableBase>
+    </Box>
 </template>
 <script>
+import Box from '../components/Box.vue'
 import Selecter from '../components/Selecter.vue'
 import TextNumber from '../components/TextNumber.vue'
 import DatePicker from '../components/DatePicker.vue'
 import CheckBox from '../components/CheckBox.vue'
 import RadioButton from '../components/RadioButton.vue'
-import TableBase from '../components/Table/TableBase.vue'
+import TableBase from '../components/TableBase.vue'
 import tableData from '../data/table.json'
 import { mapMutations } from 'vuex'
 
 export default {
     components: {
+        Box,
         Selecter,
         TextNumber,
         DatePicker,
