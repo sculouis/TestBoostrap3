@@ -11,7 +11,11 @@ const tableAction = {
         getters: {
             dataLength(state){
                 return state.model.length + 1
+            },
+            noDelData(state){
+                return state.model.filter(element => element.isdelete === 0)
             }
+    
             },
         //註冊要update值的方法類似event,用commit呼叫
         mutations: {

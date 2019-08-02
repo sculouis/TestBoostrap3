@@ -1,7 +1,8 @@
 import 'jquery'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss'
 import 'bootstrap-select/dist/css/bootstrap-select.min.css'
-import 'bootstrap'
+import 'bootstrap-sass/assets/javascripts/bootstrap'
 import 'bootstrap-select'
 //bootstrap 3 datetimepicker沒寫npm所以手動載入
 import './style/bootstrap-datetimepicker.css'

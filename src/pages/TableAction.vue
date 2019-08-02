@@ -62,7 +62,7 @@ import CheckBox from '../components/CheckBox.vue'
 import RadioButton from '../components/RadioButton.vue'
 import TableBase from '../components/TableBase.vue'
 import tableData from '../data/table.json'
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     components: {
@@ -79,11 +79,9 @@ export default {
     },
     methods:{...mapMutations(['initData'])
     },
-    computed:{
-        noDelData(){
-            return this.$store.state.tableAction.model.filter(element => element.isdelete === 0)
-        }
-        }	
+    computed:{...mapGetters(['noDelData'])	
+
+}
 }
 </script>
 
