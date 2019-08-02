@@ -10,7 +10,7 @@
 <script>
 import {myMixin} from '../common/library'
 export default {
-    props: ['title', 'value'],
+    props: {title:String, value:String},
     mixins: [myMixin],
     data() {
         return {

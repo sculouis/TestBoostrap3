@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-    props: ["value"],
+    props: {value:Number},
     data() {
         return {
             val: "",
@@ -32,7 +32,7 @@ export default {
             set: function (newVal) {
                 var unformatValue = newVal.toString().replace(/[^0-9\.\-]+/g, "");
                 this.$emit("input", Number(unformatValue));
-                this.val = newVal;
+                this.val = Number(unformatValue);
             }
         }
     }

@@ -55,7 +55,7 @@
 import { mapGetters,mapMutations } from 'vuex'
 
 export default {
-        props:["tableData"],
+        props:{tableData:Array},
         data(){
         return {isAllOpen: true}
         },

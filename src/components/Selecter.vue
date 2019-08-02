@@ -10,7 +10,7 @@
     import {myMixin} from '../common/library'    
     export default {
         mixins: [myMixin],
-        props:['value'],
+        props:{value:String},
         data() {
             return {
                 val: "",

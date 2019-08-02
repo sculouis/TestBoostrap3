@@ -8,18 +8,18 @@
 <script>
 import {myMixin} from '../common/library'
 export default {
-    props: ['id', 'title', 'value'],
+    props: {id:String, title:String, value:Boolean},
     mixins: [myMixin],
     data() {
-        return { val: false,myTitle:"" }
+        return { val: null,myTitle:"" }
     },
     mounted() {
         this.val = this.value
         this.myTitle = this.title
     },
     updated() {
-        let isTrueSet = (this.val === 'true')
-        this.$emit("input", isTrueSet)
+        let setResult = (this.val === 'true')
+        this.$emit("input", setResult)
     }
     
 }

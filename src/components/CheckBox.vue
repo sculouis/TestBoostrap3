@@ -4,7 +4,7 @@
 <script>
 import {myMixin} from '../common/library'
 export default {
-    props: ['id', 'title', 'value'],
+    props: {id:String, title:String, value:Boolean},
     mixins: [myMixin],
     data() {
         return { val: null,myTitle:"" }

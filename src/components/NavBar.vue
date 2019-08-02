@@ -14,7 +14,6 @@
       <p>  
         <router-link to="/table">明細控件</router-link>
       </p>
-
       <p><span class="glyphicon glyphicon-user nav-icon-size-peo"></span>測試者</p>
       <p class="sign-out"><a href="#"><span class="glyphicon glyphicon-cog nav-icon-size-time"></span>管理中心</a>
       </p>
