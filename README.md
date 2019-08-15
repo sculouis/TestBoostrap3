@@ -1,9 +1,12 @@
 # bootstrap 3 的vue 組件寫法
-1. 使用bootstrap-select
-2. bootstrap 3 datetimepicker，NPM並沒有安裝所以整包原始碼加進本專案
-### 客製化component
-* input 關於number
+* 使用bootstrap-select
+* bootstrap 3 datetimepicker，NPM並沒有安裝所以整包原始碼加進本專案
+### 客製化components
+* input 關於數字千分位
 * checkBox
 * radioButton
-* 日期選擇控制項
+* datetimepicker
 * selecter
+* Box  --> 專屬頁面區塊
+* BreadCrumb -->麵包屑
+* NavBar -->導覽列
