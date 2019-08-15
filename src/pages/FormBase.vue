@@ -2,7 +2,7 @@
     <Box title="基本控件">
         <div class="row">
             <div class="col-md-3 content-box">
-                <!-- <div class="w100 title">選擇欄位</div> -->
+                <div class="w100 title">選擇欄位</div>
                 <selecter v-model="val"></selecter>
             </div>
             <div class="col-md-3 content-box">

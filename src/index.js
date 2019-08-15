@@ -1,19 +1,21 @@
 import 'jquery'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss'
-import 'bootstrap-select/dist/css/bootstrap-select.min.css'
+// import 'bootstrap-select/dist/css/bootstrap-select.min.css'
+import 'bootstrap-select/sass/bootstrap-select.scss'
 import 'bootstrap-sass/assets/javascripts/bootstrap'
 import 'bootstrap-select'
-//bootstrap 3 datetimepicker沒寫npm所以手動載入
+//bootstrap 3 datetimepicker沒打包到npm所以hardcard載入
 import './style/bootstrap-datetimepicker.css'
 import 'moment'
 import './common/bootstrap-datetimepicker.min.js'
-// for Esun
+// ESUN customize css
 import './style/icon-style.css'
 import './style/form.css'
 import './style/main.css'
 import './style/index.css'
 import './style/myStyle.css'
+// Vue Components
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VuejsDialog from 'vuejs-dialog';

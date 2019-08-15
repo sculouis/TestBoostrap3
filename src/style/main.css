@@ -158,7 +158,7 @@ input[type=radio]{margin:3px 3px 0 3px;height: 1em;width: 1em; border-radius: 4p
 .cell-2 input{  width: 150%; margin-bottom: 20px; border-radius: 0; border: none; }
 .box-title-btn{ box-sizing: border-box; background-color: #56C3A9; width: auto; height: 38px; line-height: 38px; margin: 7px 10px; float: right; cursor: pointer; }
 .dropdown .ap_btn{ width: 100%; margin-top: 25px; }
-.dropdown .btn { float: left; margin-top: 25px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width: 100%; }
+.dropdown .btn { float: left; margin-top: 0px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width: 100%; }
 
 .section-title { width: 100%; height:auto;overflow: auto;border-bottom:1px #f1f1f1 solid;display: block;margin-top:10px;}
 .section-title span{display: block;line-height: 25px;float: left;font-size:20px;padding: 0px 5px;color:#616673;margin: 0px 0 10px 0px;letter-spacing: 1px;}
