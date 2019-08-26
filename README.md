@@ -10,3 +10,6 @@
 * Box  --> 專屬頁面區塊
 * BreadCrumb -->麵包屑
 * NavBar -->導覽列
+```  
+<div class="error-text"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+```
