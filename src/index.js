@@ -26,6 +26,9 @@ import store from './common/store'
 import App from './pages/App.vue';
 import FormBase from './pages/FormBase.vue'
 import TableAction from './pages/TableAction.vue'
+import Vuelidate from 'vuelidate'
+
+
 
 // Tell Vue to install the plugin.
 const routes = [
@@ -40,17 +43,24 @@ const router = new VueRouter({
   routes // short for `routes: routes`
 })
 
+//使用驗證
+Vue.use(Vuelidate);
+
+
+//確認視窗
 Vue.use(VuejsDialog, {
     okText: '確定',
     cancelText: '取消'
   });
+  //使用Router
 Vue.use(VueRouter);  
 new Vue({
     store,
     router,
     el:'#app',
     render:h=>h(App)
-})
+});
+
 
 // $(function(){
 //     var hello = () => 'Hello' 
