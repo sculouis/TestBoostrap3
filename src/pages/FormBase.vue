@@ -14,7 +14,7 @@
             <div class="col-md-3 content-box">
                 <div class="w100 title">數字欄位</div>
                 <TextNumber v-model="numValue"></TextNumber>
-                <div class="error-text" v-show="submitted && !$v.numValue.required"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+                <div class="error-text"  v-show="submitted && !$v.numValue.required"><span class="icon-error icon-error-size"></span>未完成填寫</div>
             </div>
             <div class="col-md-3 content-box">
                 <div class="w100 title">檢查框欄位</div>
@@ -28,9 +28,20 @@
             </div>
         </div>
         <div class="row">
-            <button class="btn-primary" @click="submit()">Submit</button>
+            <div class="col-sm-4 m-top20">
+							  <div class="ui-box-center w90">
+							  	<div class="form-button-h30"><a @click="submit()">Submit</a></div>
+							  </div><!-- ui-box-center -->
+						  </div>
+            <div class="col-sm-4 m-top20">
+                    <div class="ui-box-center w90">
+                    <div class="form-button-h30"><a @click="open()">彈出視窗</a></div>
+                    </div><!-- ui-box-center -->
+                </div>
+              
         </div>
         <pre style="margin-top: 25px">{{$v}}</pre>
+        <Remodal @click="open()"></Remodal>
     </Box>
 </template>
 
@@ -41,6 +52,7 @@
     import DatePicker from '../components/DatePicker.vue'
     import CheckBox from '../components/CheckBox.vue'
     import RadioButton from '../components/RadioButton.vue'
+    import Remodal from '../components/Remodal.vue'
     import { required, minLength, between,requiredIf } from 'vuelidate/lib/validators'
 
 export default {
@@ -50,7 +62,8 @@ export default {
             TextNumber,
             DatePicker,
             CheckBox,
-            RadioButton
+            RadioButton,
+            Remodal
         },
         data() {
             return {
@@ -87,6 +100,13 @@ export default {
             submit(){
                 this.submitted = true
                 console.log(`輸入檢查不合法：${this.$v.$invalid}`)
+            },
+            open(){
+                var inst = $('[data-remodal-id=modal-01]').remodal();
+                /**
+                 * Opens the modal window
+                 */
+                inst.open();
             }
         }
         }

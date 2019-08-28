@@ -13,9 +13,9 @@
         </template>
         <template v-slot:FirstDetail = "{ data,index }">
             <td v-text="index + 1" rowspan="200"></td>
-            <td><TextNumber v-model="data.val"></TextNumber></td>
-            <td><Selecter v-model="data.select"></Selecter></td>
-            <td><DatePicker v-model="data.date"></DatePicker></td>
+            <td><TextNumber v-model="data.val" :smallSize="true"></TextNumber></td>
+            <td><Selecter v-model="data.select" :smallSize="true"></Selecter></td>
+            <td><DatePicker v-model="data.date" :smallSize="true"></DatePicker></td>
             <td><CheckBox v-model="data.checked" v-bind:title="data.title"></CheckBox></td>
             <td>
                 <RadioButton v-model="data.picker"></RadioButton>
@@ -31,8 +31,8 @@
                 </th>
         </template>
         <template v-slot:SecondDetail= "{ data }">
-                <td><TextNumber v-model="data.val1"></TextNumber></td>
-                <td><Selecter v-model="data.select1"></Selecter></td>
+                <td><TextNumber v-model="data.val1" :smallSize="true"></TextNumber></td>
+                <td><Selecter v-model="data.select1" :smallSize="true"></Selecter></td>
                 <td v-text="data.date1"></td>
                 <td><CheckBox v-model="data.checked1" v-bind:title="data.title"></CheckBox></td>
                 <td colspan="2">

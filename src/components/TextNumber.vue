@@ -1,17 +1,19 @@
 <template>
-  <input class="input h30" v-model="numVal">
+  <input class="input" :class="{h30:small}" v-model="numVal">
 </template>
 <script>
 export default {
-    props:['value'],
+    props:['value','smallSize'],
     data() {
         return {
             val: "",
-            pattern: ""
+            pattern: "",
+            small:false
         };
     },
     mounted() {
         this.val = this.value;
+        this.small = this.smallSize;
     },
     computed: {
         numVal: {

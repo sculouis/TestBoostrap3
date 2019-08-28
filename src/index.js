@@ -9,6 +9,13 @@ import 'bootstrap-select'
 import './style/bootstrap-datetimepicker.css'
 import 'moment'
 import './common/bootstrap-datetimepicker.min.js'
+
+//remodal
+import 'remodal/dist/remodal-default-theme.css'
+import 'remodal/dist/remodal.css'
+import 'remodal/dist/remodal.min.js'
+
+
 // ESUN customize css
 import './style/icon-style.css'
 import './style/form.css'
