@@ -22,26 +22,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 content-box">
+            <div class="col-sm-4 content-box">
                 <div class="title w100">選項按鈕</div>
                 <RadioButton v-model="picker"></RadioButton>
+            </div>
+            <div class="col-sm-4 content-box">
+                <div class="title w100">顯示文字</div>
+                <DisableText placeHolder="請點選右方【選擇】鈕選擇供應商"></DisableText>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4 m-top20">
-							  <div class="ui-box-center w90">
-							  	<div class="form-button-h30"><a @click="submit()">Submit</a></div>
-							  </div><!-- ui-box-center -->
-						  </div>
-            <div class="col-sm-4 m-top20">
-                    <div class="ui-box-center w90">
-                    <div class="form-button-h30"><a @click="open()">彈出視窗</a></div>
-                    </div><!-- ui-box-center -->
-                </div>
-              
+                    <!-- btn-02-blue,btn-02-gray -->
+                    <div class="area-1">
+                        <ButtonAction bgColor="btn-02-gray"  iconName="glyphicon glyphicon-remove" @click="submit()">Submit</ButtonAction>
+                        <ButtonAction bgColor="btn-02-blue"  iconName="icon-search" @click="open()">彈出視窗</ButtonAction>
+                    </div>
+                    <!-- icon-search,icon-plus,glyphicon glyphicon-remove- -->
+            </div>
         </div>
         <pre style="margin-top: 25px">{{$v}}</pre>
-        <Remodal @click="open()"></Remodal>
+        <Remodal></Remodal>
     </Box>
 </template>
 
@@ -53,7 +54,9 @@
     import CheckBox from '../components/CheckBox.vue'
     import RadioButton from '../components/RadioButton.vue'
     import Remodal from '../components/Remodal.vue'
-    import { required, minLength, between,requiredIf } from 'vuelidate/lib/validators'
+    import ButtonAction from '../components/ButtonAction.vue'
+    import DisableText from '../components/DisableText.vue'
+    import { required } from 'vuelidate/lib/validators'
 
 export default {
             components: {
@@ -63,7 +66,9 @@ export default {
             DatePicker,
             CheckBox,
             RadioButton,
-            Remodal
+            Remodal,
+            ButtonAction,
+            DisableText
         },
         data() {
             return {
