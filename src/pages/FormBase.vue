@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3 content-box">
                 <div class="w100 title">選擇欄位</div>
-                <selecter v-model="val"></selecter>
+                <Selecter v-model="val"></Selecter>
                 <div class="error-text" v-show="submitted && !$v.val.required && $v.val.greaterThan"><span class="icon-error icon-error-size"></span>未完成填寫</div>
             </div>
             <div class="col-md-3 content-box">
@@ -30,6 +30,10 @@
                 <div class="title w100">顯示文字</div>
                 <DisableText placeHolder="請點選右方【選擇】鈕選擇供應商"></DisableText>
             </div>
+            <div class="col-sm-4 content-box">
+                <div class="title w100">文字欄位</div>
+                <TextString v-model="val"></TextString>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-4 m-top20">
@@ -50,6 +54,7 @@
     import Box from '../components/Box.vue'
     import Selecter from '../components/Selecter.vue'
     import TextNumber from '../components/TextNumber.vue'
+    import TextString from '../components/TextString.vue'
     import DatePicker from '../components/DatePicker.vue'
     import CheckBox from '../components/CheckBox.vue'
     import RadioButton from '../components/RadioButton.vue'
@@ -63,6 +68,7 @@ export default {
             Box,
             Selecter,
             TextNumber,
+            TextString,
             DatePicker,
             CheckBox,
             RadioButton,

@@ -35,7 +35,8 @@ export default {
                 if (newVal !== ""){ 
                 var unformatValue = newVal.toString().replace(/[^0-9\.\-]+/g, "");
                 this.$emit("input", Number(unformatValue));
-                this.val = Number(unformatValue);
+                // this.val = Number(unformatValue);
+                this.val = newVal ;
                 }else{
                     this.val = ""
                     this.$emit("input", "");

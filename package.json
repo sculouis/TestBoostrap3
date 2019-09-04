@@ -17,7 +17,7 @@
     "bootstrap-select": "^1.13.10",
     "jquery": "^1.11.2",
     "moment": "^2.24.0",
-    "remodal": "^1.1.1",
+    "remodal": "^1.1.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",
     "vuejs-dialog": "^1.4.1",
