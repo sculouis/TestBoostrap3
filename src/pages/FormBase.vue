@@ -1,56 +1,59 @@
 <template>
-    <Box title="基本控件">
-        <div class="row">
-            <div class="col-md-3 content-box">
-                <div class="w100 title">選擇欄位</div>
-                <Selecter v-model="val"></Selecter>
-                <div class="error-text" v-show="submitted && !$v.val.required && $v.val.greaterThan"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+    <SectionEdit title="文件資訊">
+        <Box title="基本控件">
+            <div class="row">
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">選擇欄位</div>
+                    <Selecter v-model="val"></Selecter>
+                    <div class="error-text" v-show="submitted && !$v.val.required && $v.val.greaterThan"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+                </div>
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">日期欄位</div>
+                    <DatePicker v-model="myDate"></DatePicker>
+                    <div class="error-text" v-show="submitted && !$v.myDate.required"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+                </div>
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">數字欄位</div>
+                    <TextNumber v-model="numValue"></TextNumber>
+                    <div class="error-text"  v-show="submitted && !$v.numValue.required"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+                </div>
+                <div class="col-md-3 content-box">
+                    <div class="w100 title">檢查框欄位</div>
+                    <CheckBox v-model="check" title="檢查欄位"></CheckBox>
+                </div>
             </div>
-            <div class="col-md-3 content-box">
-                <div class="w100 title">日期欄位</div>
-                <DatePicker v-model="myDate"></DatePicker>
-                <div class="error-text" v-show="submitted && !$v.myDate.required"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+            <div class="row">
+                <div class="col-sm-4 content-box">
+                    <div class="title w100">選項按鈕</div>
+                    <RadioButton v-model="picker"></RadioButton>
+                </div>
+                <div class="col-sm-4 content-box">
+                    <div class="title w100">顯示文字</div>
+                    <DisableText placeHolder="請點選右方【選擇】鈕選擇供應商"></DisableText>
+                </div>
+                <div class="col-sm-4 content-box">
+                    <div class="title w100">文字欄位</div>
+                    <TextString v-model="val"></TextString>
+                </div>
             </div>
-            <div class="col-md-3 content-box">
-                <div class="w100 title">數字欄位</div>
-                <TextNumber v-model="numValue"></TextNumber>
-                <div class="error-text"  v-show="submitted && !$v.numValue.required"><span class="icon-error icon-error-size"></span>未完成填寫</div>
+            <div class="row">
+                <div class="col-sm-4 m-top20">
+                        <!-- btn-02-blue,btn-02-gray -->
+                        <div class="area-1">
+                            <ButtonAction bgColor="btn-02-gray"  iconName="glyphicon glyphicon-remove" @click="submit()">Submit</ButtonAction>
+                            <ButtonAction bgColor="btn-02-blue"  iconName="icon-search" @click="open()">彈出視窗</ButtonAction>
+                        </div>
+                        <!-- icon-search,icon-plus,glyphicon glyphicon-remove- -->
+                </div>
             </div>
-            <div class="col-md-3 content-box">
-                <div class="w100 title">檢查框欄位</div>
-                <CheckBox v-model="check" title="檢查欄位"></CheckBox>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 content-box">
-                <div class="title w100">選項按鈕</div>
-                <RadioButton v-model="picker"></RadioButton>
-            </div>
-            <div class="col-sm-4 content-box">
-                <div class="title w100">顯示文字</div>
-                <DisableText placeHolder="請點選右方【選擇】鈕選擇供應商"></DisableText>
-            </div>
-            <div class="col-sm-4 content-box">
-                <div class="title w100">文字欄位</div>
-                <TextString v-model="val"></TextString>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 m-top20">
-                    <!-- btn-02-blue,btn-02-gray -->
-                    <div class="area-1">
-                        <ButtonAction bgColor="btn-02-gray"  iconName="glyphicon glyphicon-remove" @click="submit()">Submit</ButtonAction>
-                        <ButtonAction bgColor="btn-02-blue"  iconName="icon-search" @click="open()">彈出視窗</ButtonAction>
-                    </div>
-                    <!-- icon-search,icon-plus,glyphicon glyphicon-remove- -->
-            </div>
-        </div>
-        <pre style="margin-top: 25px">{{$v}}</pre>
+            <pre style="margin-top: 25px">{{$v}}</pre>
+        </Box>
         <Remodal></Remodal>
-    </Box>
+    </SectionEdit>    
 </template>
 
 <script>
+    import SectionEdit from '../components/SectionEdit.vue'
     import Box from '../components/Box.vue'
     import Selecter from '../components/Selecter.vue'
     import TextNumber from '../components/TextNumber.vue'
@@ -65,6 +68,7 @@
 
 export default {
             components: {
+            SectionEdit,
             Box,
             Selecter,
             TextNumber,
