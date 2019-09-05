@@ -1,5 +1,5 @@
 <template>
-    <div class="remodal" v-bind:data-remodal-id="dataId" role="dialog"
+    <div class="remodal" v-bind:data-remodal-id="remodalId" role="dialog"
         aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1">
         <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
         <div class="col-sm-12">
@@ -20,6 +20,6 @@
 </template>
 <script>
 export default {
-    props:{dataId:String,title:String},
+    props:{remodalId:String,title:String},
 }
 </script>

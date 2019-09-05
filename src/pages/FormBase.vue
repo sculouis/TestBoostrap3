@@ -41,15 +41,15 @@
                         <!-- btn-02-blue,btn-02-gray -->
                         <div class="area-1">
                             <ButtonAction bgColor="btn-02-gray"  iconName="glyphicon glyphicon-remove" @click="submit()">Submit</ButtonAction>
-                            <ButtonAction bgColor="btn-02-blue"  iconName="icon-search" @click="open($event.target)" id="modal-01">彈出視窗</ButtonAction>
-                            <ButtonAction bgColor="btn-02-blue"  iconName="icon-search" @click="open($event.target)" id="modal-02">彈出視窗</ButtonAction>
+                            <ButtonAction bgColor="btn-02-blue"  iconName="icon-search"  remodalId="modal-01">彈出視窗</ButtonAction>
+                            <ButtonAction bgColor="btn-02-blue"  iconName="icon-search"  remodalId="modal-02">彈出視窗</ButtonAction>
                         </div>
                         <!-- icon-search,icon-plus,glyphicon glyphicon-remove- -->
                 </div>
             </div>
             <pre style="margin-top: 25px">{{$v}}</pre>
         </Box>
-        <Remodal dataId="modal-01" title="彈出視窗一">
+        <Remodal remodalId="modal-01" title="彈出視窗一">
                 <div class="col-sm-12">
                     <div class="popup-tr-title">
                         <ul class="w100">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
         </Remodal>
-        <Remodal dataId="modal-02" title="彈出視窗二"></Remodal>
+        <Remodal remodalId="modal-02" title="彈出視窗二"></Remodal>
     </SectionEdit>    
 </template>
 
@@ -168,14 +168,6 @@ export default {
             submit(){
                 this.submitted = true
                 console.log(`輸入檢查不合法：${this.$v.$invalid}`)
-            },
-            open(e){
-                console.log(e.id)
-                var inst = $(`[data-remodal-id=${e.id}]`).remodal();
-                /**
-                 * Opens the modal window
-                 */
-                inst.open();
             }
         }
         }

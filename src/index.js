@@ -33,12 +33,14 @@ import store from './common/store'
 import App from './pages/App.vue';
 import FormBase from './pages/FormBase.vue'
 import TableAction from './pages/TableAction.vue'
+import CodeGen from './pages/CodeGen.vue'
 import Vuelidate from 'vuelidate'
 
 
 
 // Tell Vue to install the plugin.
 const routes = [
+  { path: '/codegen', component: CodeGen },
   { path: '/formbase', component: FormBase },
   { path: '/table', component: TableAction }
 ]

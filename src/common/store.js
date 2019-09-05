@@ -32,7 +32,12 @@ const tableAction = {
             },
             setIsDetailOpen(state,objBool) {
                 state.model.forEach(element => element.isDetailOpen = objBool);
-            }
+            },
+            openRemodal(state,id){
+                    var sel = "[data-remodal-id="+id +"]"
+                    var obj = $(sel).remodal();
+                    obj.open();
+                }
         },
         //非同步取得資源放在這，例如呼叫Server WebAPI，用dispatch呼叫
         actions: {
