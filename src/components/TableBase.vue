@@ -62,7 +62,7 @@ export default {
         mounted(){
             // this.datas = this.tableData
         },
-        methods:{...mapMutations(['setIsDetailOpen','addObject','delObject']),
+        methods:{...mapMutations('table',['setIsDetailOpen','addObject','delObject']),
         setAllOpenStatus() {
                 this.isAllOpen = !this.isAllOpen
                 this.setIsDetailOpen(this.isAllOpen) 
@@ -106,7 +106,7 @@ export default {
         });
      },
     },
-    computed:{...mapGetters(['dataLength']),
+    computed:{...mapGetters('table',['dataLength']),
         noDelData() { return this.tableData.filter(element => element.isdelete === 0)},
     },
 }

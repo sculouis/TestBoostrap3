@@ -52,36 +52,83 @@
             </div> 
         </div>
     </Box>
-    <Box title="查詢結果">
-        <div class="row">        
-            <div class="col-sm-3 content-box">
-                <div class="w100 title">
-                    <b class="float-left">選項按鈕</b>
-                    <b class="required-icon">*</b>
-                </div>                    
+    <Box title="table_查詢結果">
+    <TableBase v-bind:tableData="noDelData">
+        <template slot="FirstHead">
+            <th class="th-title w5">no</th>
+            <th class="th-title w15">選項按鈕</th>
+            <th class="th-title w15">檢查按鈕</th>
+            <th class="th-title w15">發票地點</th>
+            <th class="th-title w15">數字欄位</th>
+            <th class="th-title w15">灰階欄位</th>
+        </template>
+        <template v-slot:FirstDetail = "{ data,index }">
+            <td v-text="index + 1" rowspan="200"></td>
+            <td> 
                 <RadioButton v-model="supplier1"></RadioButton>
-            </div>         
-            <div class="col-sm-3 content-box">
-                <div class="w100 title">
-                    <b class="float-left">檢查按鈕</b>
-                    <b class="required-icon">*</b>
-                </div>                    
+</td>
+            <td> 
                 <CheckBox v-model="choice1" title="檢查按鈕"></CheckBox>
-            </div>         
-            <div class="col-sm-3 content-box">
-                <div class="w100 title">
-                    <b class="float-left">發票地點</b>
-                    <b class="required-icon">*</b>
-                </div>                    
+</td>
+            <td> 
                 <Selecter v-model="invoice1"></Selecter>
-            </div>         
-            <div class="col-sm-3 content-box">
-                <div class="w100 title">
-                    <b class="float-left">數字欄位</b>
-                </div>                    
-                <TextNumber v-model="number"></TextNumber>
-            </div> 
-        </div>
+</td>
+            <td> 
+                <TextString v-model="number1" placeHolder="None"></TextString>
+</td>
+            <td> 
+                <DisableText v-model="disable1" placeHolder="None"></DisableText>
+</td>
+        </template>
+        <template v-slot:SecondDetailHead>
+            <th class="th-title-1 w15">選項按鈕</th>
+            <th class="th-title-1 w15">檢查按鈕</th>
+            <th class="th-title-1 w15">發票地點</th>
+            <th class="th-title-1 w15">數字欄位</th>
+            <th class="th-title-1 w15">灰階欄位</th>
+        </template>
+        <template v-slot:SecondDetail= "{ data }">
+                <td>
+                <RadioButton v-model="supplier2"></RadioButton>
+</td>
+                <td>
+                <CheckBox v-model="choice2" title="檢查按鈕"></CheckBox>
+</td>
+                <td>
+                <Selecter v-model="invoice2"></Selecter>
+</td>
+                <td>
+                <TextString v-model="number2" placeHolder="None"></TextString>
+</td>
+                <td>
+                <DisableText v-model="disable2" placeHolder="None"></DisableText>
+</td>
+        </template>
+        <template v-slot:ThirdHead="{ data }">
+            <th class="th-title-1">選項按鈕</th>
+            <th class="th-title-1">檢查按鈕</th>
+            <th class="th-title-1">發票地點</th>
+            <th class="th-title-1">數字欄位</th>
+            <th class="th-title-1">灰階欄位</th>
+        </template>
+        <template v-slot:ThirdDetail="{ subdata,index }">
+                <td>
+                <RadioButton v-model="supplier3"></RadioButton>
+</td>
+                <td>
+                <CheckBox v-model="choice3" title="檢查按鈕"></CheckBox>
+</td>
+                <td>
+                <Selecter v-model="invoice3"></Selecter>
+</td>
+                <td>
+                <TextString v-model="number3" placeHolder="None"></TextString>
+</td>
+                <td>
+                <DisableText v-model="disable3" placeHolder="None"></DisableText>
+</td>
+        </template>
+        </TableBase>
     </Box>
     <Box title="採購單主檔">
         <div class="row">        
@@ -129,7 +176,9 @@
     import ButtonAction from '../components/ButtonAction.vue'
     import DisableText from '../components/DisableText.vue'
     import Popup from '../components/Popup.vue'
+    import TableBase from '../components/TableBase.vue'
     import { required } from 'vuelidate/lib/validators'
+    import { mapGetters, mapMutations } from 'vuex'
 
 export default {
             components: {
@@ -143,23 +192,20 @@ export default {
             RadioButton,
             ButtonAction,
             DisableText,
-            Popup
+            Popup,
+            TableBase
         },
         data() {
-            return {                            
-                        supplier:"",                            
-                        choice1:"",                            
-                        invoice:"",                            
-                        purvhaseId:"",                            
-                        quoteEmpId:"",                            
-                        description:"",                            
-                        supplier1:"",                            
-                        choice1:"",                            
-                        invoice1:"",                            
-                        number:"",                            
-                        supplier1:"",                            
-                        choice1:"",                            
-                        invoice1:"",                            
+            return {                                
+                        supplier:"",                                
+                        choice1:"",                                
+                        invoice:"",                                
+                        purvhaseId:"",                                
+                        quoteEmpId:"",                                
+                        description:"",                                
+                        supplier1:"",                                
+                        choice1:"",                                
+                        invoice1:"",                                
                         date1:"",            }
         },
         validations:{
@@ -182,11 +228,34 @@ export default {
         },
         mounted(){
             console.log(this.$v.$reset())
-        },
-        methods:{
+            var tableData = [{                                
+                        supplier1:"",                                
+                        choice1:"",                                
+                        invoice1:"",                                
+                        number1:"",                                
+                        disable1:"",                                
+                        supplier2:"",                                
+                        choice2:"",                                
+                        invoice2:"",                                
+                        number2:"",                                
+                        disable2:"",                            subDatas:[{
+                                
+                        supplier3:"",                                
+                        choice3:"",                                
+                        invoice3:"",                                
+                        number3:"",                                
+                        disable3:"",                             } ],
+            isdelete:0,
+            isDetailOpen: false,
+            isSubOpen: false
+            }]
+            this.initData(tableData)    
+    },
+    computed:{...mapGetters('table',['noDelData'])},
+    methods:{...mapMutations('table',['initData']),
             submit(){
                 this.submitted = true
             }
         }
-        }
+}
 </script>

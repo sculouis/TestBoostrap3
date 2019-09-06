@@ -77,9 +77,9 @@ export default {
     mounted(){
             this.initData(tableData)    
     },
-    methods:{...mapMutations(['initData'])
+    methods:{...mapMutations('table',['initData'])
     },
-    computed:{...mapGetters(['noDelData'])	
+    computed:{...mapGetters('table',['noDelData'])	
 
 }
 }
