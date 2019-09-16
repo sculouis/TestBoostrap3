@@ -16,7 +16,11 @@ export default {
         this.myTitle = this.title
     },
     updated() {
-        this.checked()
+        if (this.val === true) {
+            this.$emit("input", true)
+        } else if (this.val === false) {
+            this.$emit("input", false)
+        }
     }    
 }
 </script>

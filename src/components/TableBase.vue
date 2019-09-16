@@ -53,6 +53,7 @@
 </template>
 <script>
 import { mapGetters,mapMutations } from 'vuex'
+import tableData from '../data/codegentable.json'
 
 export default {
         props:{tableData:Array},
@@ -70,27 +71,7 @@ export default {
             },
         addNewObject: function () {
                     var no = this.dataLength
-                    var dataObj = {
-                        no: no,
-                        title: "標題",
-                        val: 0,
-                        value: "",
-                        select: "1",
-                        date: "2019-05-30",
-                        picker: true,
-                        checked: true,
-                        val1: 0,
-                        value1: "測試TextBox",
-                        select1: "2",
-                        date1: "2019-05-15",
-                        picker1: true,
-                        checked1: true,
-                        isdelete: 0,
-                        isDetailOpen: false,
-                        subDatas: [{ data1: "測試1", data2: "測試2", data3: "測試3" }, { data1: "測試1", data2: "測試2", data3: "測試3" }],
-                        isSubOpen: false,
-                    }
-                    this.addObject(dataObj)                
+                    this.addObject(tableData)                
             },
         alertConfirm: function (no) {
         var text = `是否刪除，編號：${no} ?`

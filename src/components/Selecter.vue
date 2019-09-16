@@ -24,11 +24,13 @@
             //console.log($(this.$refs.select).val())
             this.val = this.value
             this.small = this.smallSize
-            this.selectPicker()
+            $("#" + this.myid).val(this.val)
+            $("#" + this.myid).selectpicker('refresh')
         },
         updated() {
             this.$emit('input', this.val);  //回寫對應到dataModel
-            this.selectPicker()
+            $("#" + this.myid).val(this.val)
+            $("#" + this.myid).selectpicker('refresh')
         },
     };
 </script>

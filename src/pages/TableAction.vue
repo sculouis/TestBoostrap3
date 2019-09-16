@@ -75,7 +75,9 @@ export default {
         TableBase
     },
     mounted(){
-            this.initData(tableData)    
+            tableData.forEach(element => {
+                this.initData(element)    
+            });
     },
     methods:{...mapMutations('table',['initData'])
     },

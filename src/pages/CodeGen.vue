@@ -84,7 +84,7 @@
             <th class="th-title-1 w15">檢查按鈕</th>
             <th class="th-title-1 w15">發票地點</th>
             <th class="th-title-1 w15">文字欄位</th>
-            <th class="th-title-1 w15">灰階欄位</th>
+            <th class="th-title-1 w15" colspan="2">灰階欄位</th>
         </template>
         <template v-slot:SecondDetail= "{ data }">
                 <td>
@@ -178,6 +178,7 @@
     import { required } from 'vuelidate/lib/validators'
     import { mapGetters, mapMutations } from 'vuex'
     import mainData from '../data/codegen.json'
+    import tableData from '../data/codegentable.json'
 
 export default {
             components: {
@@ -217,27 +218,6 @@ export default {
         },
         mounted(){
             console.log(this.$v.$reset())
-            var tableData = [{                                
-                        supplier1:"",                                
-                        choice1:"",                                
-                        invoice1:"",                                
-                        number1:"",                                
-                        disable1:"",                                
-                        supplier2:"",                                
-                        choice2:"",                                
-                        invoice2:"",                                
-                        number2:"",                                
-                        disable2:"",                            subDatas:[{
-                                
-                        supplier3:"",                                
-                        choice3:"",                                
-                        invoice3:"",                                
-                        number3:"",                                
-                        disable3:"",                             } ],
-            isdelete:0,
-            isDetailOpen: false,
-            isSubOpen: false
-            }]
             this.initData(tableData)    
     },
     computed:{...mapGetters('table',['noDelData'])},

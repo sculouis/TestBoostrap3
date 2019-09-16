@@ -14,7 +14,7 @@ const  getters ={
 const  mutations = {
         //取得初始資料
         initData(state, data) {
-            state.model = data
+            state.model.push(data)
         },
         delObject(state, no) {
             let delObj = state.model.find(element => element.no === no)
