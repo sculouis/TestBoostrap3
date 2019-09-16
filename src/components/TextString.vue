@@ -14,5 +14,9 @@ export default {
         this.val = this.value;
         this.small = this.smallSize;
     },
+    updated() {
+        this.$emit('input', this.val);  //回寫對應到dataModel
+    },
+
 };
 </script>

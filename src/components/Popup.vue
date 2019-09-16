@@ -11,7 +11,7 @@
 export default {
     components:{ButtonAction,Remodal},
     props:{bgColor:String,iconName:String,remodalId:String,buttonName:String,title:String},
-    methods:{...mapMutations('pop',['openRemodal'])}
+    methods:{...mapMutations('forms',['openRemodal'])}
 }
 </script>
 

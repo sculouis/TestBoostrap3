@@ -8,9 +8,11 @@
 
 <script>
     import {myMixin} from '../common/library'    
+    import { mapMutations } from 'vuex'
     export default {
         mixins: [myMixin],
         props:{value:String,smallSize:Boolean},
+        methods:{...mapMutations('forms',['selectPicker'])},
         data() {
             return {
                 val: "",
@@ -22,14 +24,11 @@
             //console.log($(this.$refs.select).val())
             this.val = this.value
             this.small = this.smallSize
-            $("#" + this.myid).val(this.value)
-            $("#" + this.myid).selectpicker('refresh')
+            this.selectPicker()
         },
         updated() {
             this.$emit('input', this.val);  //回寫對應到dataModel
-            $("#" + this.myid).val(this.val)
-            $("#" + this.myid).selectpicker('refresh')
+            this.selectPicker()
         },
-
     };
 </script>

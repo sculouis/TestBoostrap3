@@ -106,8 +106,6 @@ export default {
         });
      },
     },
-    computed:{...mapGetters('table',['dataLength']),
-        noDelData() { return this.tableData.filter(element => element.isdelete === 0)},
-    },
+    computed:{...mapGetters('table',['dataLength'])},
 }
 </script>

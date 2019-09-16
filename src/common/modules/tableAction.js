@@ -26,7 +26,6 @@ const  mutations = {
         setIsDetailOpen(state, objBool) {
             state.model.forEach(element => element.isDetailOpen = objBool);
         }
-      
     }
 
 export default{
