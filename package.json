@@ -16,7 +16,7 @@
     "bootstrap-sass": "^3.4.1",
     "bootstrap-select": "^1.13.10",
     "jquery": "^1.11.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "remodal": "^1.1.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",
